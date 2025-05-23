@@ -17,7 +17,7 @@ bool isNumber(const string& s) {
             if(isNumber(temp)) v.push_back(stoi(temp));
             if(temp=="C" && i>=1)v.pop_back();
             if(temp=="D" && i>=1)v.push_back(2* v.back());
-            if(temp=="+" && i>=2)v.push_back(v.back() + v[v.size()-2]);
+    if(temp=="+" && i>=2)v.push_back(v.back() + *(v.end()-2));
             
 
         }
