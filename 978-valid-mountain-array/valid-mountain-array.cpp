@@ -20,7 +20,7 @@ public:
             }
         }
 
-        if(ind2!=-1 || ind==-1) return false;
+        if(ind2!=-1) return false;
         return true;
     }
 };
