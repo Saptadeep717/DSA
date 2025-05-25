@@ -6,7 +6,7 @@ public:
         int col = n-1;
         int c=0;
         for(int row=0;row<n;row++){
-            while(col>=0 && m[row][col]>val) --col;
+            while(col>=0 && m[row][col]>val) col--;
             c+=col+1;
         }
         return c;
