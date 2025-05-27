@@ -17,7 +17,7 @@ public:
     while (left <= right) {
         int mid = (left + right) / 2;
 
-        auto it = lower_bound(arr.begin(), arr.end(), mid);
+        auto it = upper_bound(arr.begin(), arr.end(), mid);
         int idx = it - arr.begin();
 
         int currSum = (idx > 0 ? preSum[idx - 1] : 0) + (n - idx) * mid;
