@@ -10,10 +10,6 @@ public:
 
         sort(temp.begin(),temp.end());
         if(temp[0].first==temp[n-1].first) return 0;
-
-        for(int i=0;i<n;i++){
-            cout<<temp[i].first <<"->"<<temp[i].second<<" ";
-        }cout<<endl;
         int mini = 1e9;
         for(int i=0;i<n;i++){
             if(temp[i].first==target){
