@@ -14,7 +14,7 @@ public:
                 mpp[fruits[i]]--;
                 if(mpp[fruits[i]]==0)mpp.erase(fruits[i]);
                 i++;
-                if(mpp.size()==2) maxi = max(maxi, j-i+1);
+                //if(mpp.size()==2) maxi = max(maxi, j-i+1);
             }
             j++;
         }
