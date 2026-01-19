@@ -3,7 +3,7 @@ public:
     int leastInterval(vector<char>& tasks, int n) {
         vector<int> count(26, 0);
 
-        if (n == 0) return tasks.size();
+        //if (n == 0) return tasks.size();
 
         int maxFreq = 0;
         for (char t : tasks) {
