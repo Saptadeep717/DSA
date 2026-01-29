@@ -7,12 +7,12 @@ public:
             val += ceil((double)v[i]/(double)mid);
 
         }
-        val+=(double)v[n-1]/(double)mid;
+       val+=(double)v[n-1]/(double)mid;
 
         return val<=h;
     }
     int minSpeedOnTime(vector<int>& dist, double hour) {
-        int s=1,e=1e7;
+        int s=1,e=INT_MAX-2;
         //cout<<e;
         int ans=-1;
         while(s<=e){
