@@ -4,7 +4,6 @@ public:
     double bfs(string& s, string& e, unordered_map<string, vector<P>>& adj) {
         unordered_set<string> vis;
         vis.insert(s);
-        double val = 1.0;
         queue<P> q;
         q.push({s, 1.0});
 
@@ -45,14 +44,6 @@ public:
 
             double val = bfs(v1, v2, adj);
             ans.push_back(val);
-        }
-
-        for (auto& it : adj) {
-            cout << it.first << " -> ";
-            for (auto& itt : it.second) {
-                cout << itt.first << " " << itt.second << " ,";
-            }
-            cout << endl;
         }
 
         return ans;
