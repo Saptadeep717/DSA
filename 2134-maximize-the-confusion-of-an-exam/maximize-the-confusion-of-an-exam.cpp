@@ -1,23 +1,21 @@
 class Solution {
 public:
-    int maxConsecutiveAnswers(string answerKey, int k) {
-        int i=0,j=0,n=answerKey.size(),tCnt=0,fCnt=0,res=-1;
+    int func(string &nums, int k, char &ch) {
+        int n = nums.size(), l=0,r=0, cnt=0, ans =-1;
 
-        while(j<n){
-            if(answerKey[j]=='T'){
-                tCnt++;
-            }else{
-                fCnt++;
+        while(r<n){
+            if(nums[r]==ch) cnt++;
+            while(cnt > k){
+                if(nums[l]==ch) cnt--;
+                l++;
             }
-
-            while(min(tCnt,fCnt) > k){
-                if(answerKey[i++]=='T')tCnt--;
-                else fCnt--;
-            }
-
-            res=max(res,j-i+1);
-            j++;
+            if(cnt<=k)ans = max(ans,r-l+1);
+            r++;
         }
-        return res;
+        return ans;
+    }
+    int maxConsecutiveAnswers(string answerKey, int k) {
+        char ch1='T',ch2='F';
+        return max(func(answerKey,k,ch1),func(answerKey,k,ch2) );
     }
 };
