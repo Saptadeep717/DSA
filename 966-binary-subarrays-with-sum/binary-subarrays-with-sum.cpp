@@ -1,15 +1,22 @@
 class Solution {
 public:
     int numSubarraysWithSum(vector<int>& nums, int k) {
-        unordered_map<int, int> mp;
-        int sum = 0, count =0;
-        for(int i = 0; i<nums.size(); i++){
-            sum += nums[i];
+        int sum = 0, cnt =0;
+        int i=0,j=0, n=nums.size();
+        int cntZero=0;
+        while(j<n){
+            sum+=nums[j];
             
-            if(sum ==k) count++;
-            if(mp.count(sum-k)) count+= mp[sum-k];
-            mp[sum]++;
+            while(i<j && (nums[i]==0 || sum>k )){
+                if(nums[i]==0){
+                    cntZero++;
+                }else cntZero=0;
+                sum-=nums[i];
+                i++;
+            }
+            if(sum==k)cnt += 1+cntZero;
+            j++;
         }
-        return count;
+        return cnt;    
     }
 };
