@@ -1,23 +1,22 @@
 class MyCalendar {
-    // vector<pair<int, int>> books;
-    map<int, int> mpp;
-
 public:
-    MyCalendar() {}
-
-    bool book(int s, int e) {
-        // for (auto p : books) {
-        //     if (max(p.first, startTime) < min(endTime, p.second))
-        //         return false;
-        // }
-        // books.push_back({startTime, endTime});
-        // return true;
-        auto next = mpp.lower_bound(s);
-        if (next != mpp.end() && next->first < e)
-            return false;
-        if (next != mpp.begin() && prev(next)->second > s)
-            return false;
-        mpp[s] = e;
+    map<int,int>events;
+    MyCalendar() {
+        
+    }
+    
+    bool book(int startTime, int endTime) {
+        events[startTime]+=1;
+        events[endTime]-=1;
+        int cnt = 0;
+        for(auto &it:events){
+            cnt+=it.second;
+            if(cnt>1){
+                events[startTime]-=1;
+                events[endTime]+=1;
+                return false;
+            }
+        }
         return true;
     }
 };
