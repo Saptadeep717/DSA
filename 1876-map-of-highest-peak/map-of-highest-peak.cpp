@@ -30,7 +30,7 @@ public:
                 int ni = r + dx[k];
                 int nj = c + dy[k];
 
-                if (ni >= 0 && ni < n && nj >= 0 && nj < m && !vis[ni][nj] && !isWater[ni][nj]) {
+                if (ni >= 0 && ni < n && nj >= 0 && nj < m && !vis[ni][nj]) {
                     q.push({{ni, nj}, dis + 1});
                     vis[ni][nj] = 1;
                 }
