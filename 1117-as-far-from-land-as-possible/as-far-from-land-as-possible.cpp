@@ -5,7 +5,6 @@ public:
         int n = grid.size();
         int m = grid[0].size();
         vector<vector<bool>> vis(n, vector<bool>(m, 0));
-        //vector<vector<int>> ans(n, vector<int>(m, 0));
         queue<pair<p, int>> q;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
@@ -22,7 +21,6 @@ public:
             int c = q.front().first.second;
             int dis = q.front().second;
             q.pop();
-            //ans[r][c] = dis;
             maxi = max(maxi,dis);
 
             int dx[4] = {0, -1, +1, 0};
