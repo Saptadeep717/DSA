@@ -10,7 +10,7 @@ public:
             while(j-i+1 - maxFreqInWindow > k){
                 freq[s[i]-'A']--;
                 i++;
-                maxFreqInWindow = *max_element(freq.begin(),freq.end());
+                //maxFreqInWindow = *max_element(freq.begin(),freq.end());
             }
 
             ans = max(ans, j-i+1);
