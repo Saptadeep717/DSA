@@ -2,7 +2,7 @@
 using ll = long long;
 class Solution {
 public:
-    bool isPossible(vector<int>& candies, long long k, int mid, int n){
+    bool isPossible(vector<int>& candies, long long k, ll mid, int n){
         ll cnt=0;
         for(int i=0;i<n;i++){
             cnt+= (candies[i]/mid);
@@ -14,10 +14,10 @@ public:
         ll sum = accumulate(candies.begin(),candies.end(),0LL);
         if(sum < k) return 0;
         int ans =0;
-        int low =1;
-        int high = *max_element(candies.begin(),candies.end());
+        ll low =1;
+        ll high = ceil((double)sum/(double)k);
         while(low<=high){
-            int mid = low + (high-low)/2;
+            ll mid = low + (high-low)/2;
             if(isPossible(candies,k,mid,n)){
                 ans = mid;
                 low=mid+1;        
