@@ -3,7 +3,7 @@ public:
     bool isPossible(vector<int>& nums, int maxOperations, int maxNoBallsInBag, int n){
         long long cnt=0;
         for(int i=0;i<n;i++){
-            cnt += (nums[i]-1)/maxNoBallsInBag;
+            cnt += ceil((double)(nums[i]/(double)maxNoBallsInBag)-1);
         }
         return cnt<=maxOperations;
     }
