@@ -15,7 +15,7 @@ public:
         if(sum < k) return 0;
         int ans =0;
         ll low =1;
-        ll high = ceil((double)sum/(double)k);
+        ll high = sum/k;
         while(low<=high){
             ll mid = low + (high-low)/2;
             if(isPossible(candies,k,mid,n)){
