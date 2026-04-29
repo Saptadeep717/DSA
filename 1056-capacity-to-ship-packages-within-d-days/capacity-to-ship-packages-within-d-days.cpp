@@ -10,7 +10,7 @@ public:
                 sum=weights[i];
             }
         }    
-        cnt+=1;
+        cnt+= ceil((double)sum / (double)weight);
         return cnt<=days;
     }
     int shipWithinDays(vector<int>& weights, int days) {
