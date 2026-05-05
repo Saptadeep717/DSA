@@ -19,7 +19,7 @@ public:
         do{
             slow = square(slow);
             fast = square(square(fast));
-        }while(slow!=fast && fast!=-1);
+        }while(slow!=fast);
 
         return fast==1;
     }
