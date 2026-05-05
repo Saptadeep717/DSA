@@ -17,8 +17,10 @@ public:
         int fast = n;
 
         do{
+            if(fast==1) return true;
             slow = square(slow);
             fast = square(square(fast));
+            
         }while(slow!=fast);
 
         return slow==1;
