@@ -7,7 +7,8 @@ public:
         dp[n][0] = 0;
         
         for(int ind=n-1;ind>=0;ind--){
-            for(int t=0; t<=amount;t++){
+            dp[ind][0]=0;
+            for(int t=1; t<=amount;t++){
                 int notTake = dp[ind+1][t];
                 int take = INT_MAX;
                 if(coins[ind]<=t){
