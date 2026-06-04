@@ -10,7 +10,9 @@ public:
 
         // One way to form amount 0:
         // choose nothing
-        dp[n][0] = 1;
+        //dp[n][0] = 1;
+
+        for(int i=0;i<=n;i++)dp[i][0]=1;
 
         for(int ind = n - 1; ind >= 0; ind--) {
 
