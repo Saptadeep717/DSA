@@ -16,7 +16,7 @@ public:
 
         for(int ind = n - 1; ind >= 0; ind--) {
 
-            for(int a = 0; a <= amount; a++) {
+            for(int a = 1; a <= amount; a++) {
 
                 unsigned int notTake =
                     dp[ind + 1][a];
@@ -25,8 +25,7 @@ public:
 
                 if(coins[ind] <= a) {
 
-                    take =
-                        dp[ind][a - coins[ind]];
+                    take = dp[ind][a - coins[ind]];
                 }
 
                 dp[ind][a] = take + notTake;
