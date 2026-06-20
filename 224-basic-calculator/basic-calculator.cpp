@@ -1,47 +1,45 @@
 class Solution {
 public:
     int calculate(string s) {
-        long long currentFormedNum=0, currentFormedResult=0;
-        int sign = 1;
+        int n = s.size();
+        long long currNum=0,currResult=0;
+        int sign=1;
         stack<int>st;
-        for(char c : s){
-            if(c ==' ') continue;
-            if(isdigit(c)){
-                currentFormedNum = currentFormedNum*10 + (c-'0');
+        for(char ch : s){
+            if(ch==' ')continue;
+            if(isdigit(ch)){
+                currNum = currNum*10 + (ch-'0');
                 continue;
             }
-            if(c == '+'){
-                currentFormedResult += currentFormedNum*sign;
+            if(ch == '+'){
+                currResult += currNum*sign;
                 sign = 1;
-                currentFormedNum = 0;
+                currNum = 0;
+                
             }
-
-            if(c == '-'){
-                currentFormedResult += currentFormedNum*sign;
+            if(ch == '-'){
+                currResult += currNum*sign;
                 sign = -1;
-                currentFormedNum = 0;
+                currNum = 0;        
             }
-
-            if(c == '('){
-                st.push(currentFormedResult);
+            if(ch == '('){
+                st.push(currResult);
                 st.push(sign);
-                currentFormedResult=0;
-                currentFormedNum = 0;
-                sign = 1;
+                sign=1;
+                currResult = 0;
             }
-
-            if(c == ')'){
-                currentFormedResult += currentFormedNum*sign;
-                currentFormedNum = 0;
-                int prevSign = st.top();
-                st.pop();
-                int prevVal = st.top();
-                st.pop();
-                currentFormedResult = prevVal + (currentFormedResult * prevSign);
+            if(ch == ')'){
+                currResult += currNum*sign;
+                currNum=0;
+                int prevSign = st.top(); st.pop();
+                int prevResult = st.top(); st.pop();
+                currResult = prevResult + (prevSign * currResult);
             }
             
         }
-        currentFormedResult += currentFormedNum*sign;
-        return (int)currentFormedResult;
+        currResult+=currNum*sign;
+        return currResult;
+        
+
     }
 };
